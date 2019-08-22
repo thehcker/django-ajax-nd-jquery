@@ -21,7 +21,7 @@ def base(request):
 def save_book_form(request, form, template_name):
 	data = dict ()
 	if request.method == 'POST':
-		form = BookForm(request.POST)
+		# form = BookForm(request.POST)
 		if form.is_valid():
 			form.save()
 			data['form_is_valid'] = True
