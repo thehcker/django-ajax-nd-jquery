@@ -1,9 +1,7 @@
- $(function () {
-
  /* Functions */
 
-  var loadForm = function () {
-    var btn = $(this);
+  let loadForm = function () {
+    let btn = $(this);
     $.ajax({
       url: btn.attr("data-url"),
       type: 'get',
@@ -17,8 +15,8 @@
     });
   };
 
-  var saveForm = function () {
-    var form = $(this);
+  let saveForm = function () {
+    let form = $(this);
     $.ajax({
       url: form.attr("action"),
       data: form.serialize(),
@@ -51,5 +49,3 @@ $("#modal-book").on("submit", ".js-book-update-form", saveForm);
 	// Delete book
 $("#book-table").on("click", ".js-delete-book", loadForm);
 $("#modal-book").on("submit", ".js-book-delete-form", saveForm);
-
-});

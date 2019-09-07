@@ -21,7 +21,6 @@ def base(request):
 def save_book_form(request, form, template_name):
 	data = dict ()
 	if request.method == 'POST':
-		form = BookForm(request.POST)
 		if form.is_valid():
 			form.save()
 			data['form_is_valid'] = True
@@ -46,7 +45,7 @@ def book_create(request):
 def book_update(request, pk):
 	book = get_object_or_404(Book, pk=pk)
 	if request.method == 'POST':
-		form = BookForm(request.POST, instance=Book)
+		form = BookForm(request.POST, instance=book)
 	else:
 		form = BookForm(instance=book)
 	return save_book_form(request, form, 'partial_book_update.html') 
